@@ -12,6 +12,7 @@ classDiagram
         +TaskStatus status
         +LocalDateTime createdAt
         +LocalDateTime updatedAt
+        +LocalDateTime completedAt
     }
 
 
