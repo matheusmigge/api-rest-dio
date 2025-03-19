@@ -1,4 +1,5 @@
 package bootcamp_dio.api_rest_dio.domain.model;
+
 import java.time.LocalDateTime;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -6,6 +7,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Getter;
@@ -31,4 +34,19 @@ public class Task {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime completedAt;
+
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+
+        if (status == TaskStatus.DONE && this.completedAt == null) {
+            this.completedAt = LocalDateTime.now();
+        } else if (status != TaskStatus.DONE && this.completedAt != null) {
+            this.completedAt = null;
+        }
+    }
 }
