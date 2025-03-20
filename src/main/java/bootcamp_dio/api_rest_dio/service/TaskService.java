@@ -41,6 +41,24 @@ public class TaskService {
         }).orElseThrow(() -> new RuntimeException("Task not found"));
     }
 
+    public Task partialUpdateTask(Long id, Task updatedTask) {
+        Task existingTask = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+
+        if (updatedTask.getTitle() != null) {
+            existingTask.setTitle(updatedTask.getTitle());
+        }
+        if (updatedTask.getDescription() != null) {
+            existingTask.setDescription(updatedTask.getDescription());
+        }
+        if (updatedTask.getStatus() != null) {
+            existingTask.setStatus(updatedTask.getStatus());
+        }
+        existingTask.setUpdatedAt(java.time.LocalDateTime.now());
+
+        return taskRepository.save(existingTask);
+    }
+
     public void deleteTask(Long id) {
         taskRepository.deleteById(id);
     }

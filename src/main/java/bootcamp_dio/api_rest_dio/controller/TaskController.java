@@ -43,6 +43,15 @@ public class TaskController {
         }
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<Task> partialUpdateTask(@PathVariable Long id, @RequestBody Task task) {
+    try {
+        return ResponseEntity.ok(taskService.partialUpdateTask(id, task));
+    } catch (RuntimeException e) {
+        return ResponseEntity.notFound().build();
+    }
+}
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable Long id) {
         taskService.deleteTask(id);
