@@ -7,7 +7,7 @@ API RESTful para gerenciamento de tarefas, desenvolvida como parte do portfólio
 - **Spring Boot 3**: Framework que simplifica o desenvolvimento de aplicações Java, oferecendo configuração automática e boas práticas.
 - **Spring Data JPA**: Facilita a interação com bancos de dados SQL, abstraindo a camada de persistência de dados.
 - **OpenAPI (Swagger)**: Documentação automatizada e interativa para melhor compreensão e uso da API.
-- **Railway**: Plataforma para deploy e monitoramento na nuvem, oferecendo bancos de dados gerenciados e integração com CI/CD.
+- **Railway**: Plataforma de deploy e monitoramento na nuvem, com suporte a PostgreSQL gerenciado e integração com CI/CD.
 
 ## Endpoints Principais
 
