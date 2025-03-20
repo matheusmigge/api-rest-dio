@@ -31,9 +31,15 @@ API RESTful para gerenciamento de tarefas, desenvolvida como parte do portfólio
 
 ## Documentação da API
 
-A documentação interativa do Swagger/OpenAPI pode ser acessada em:
+A documentação interativa do Swagger/OpenAPI pode ser acessada através de:
+
+Acesso local:
 ```
 http://localhost:8080/swagger-ui.html
+```
+Deploy no Railway:
+```
+https://api-rest-dio-production.up.railway.app/swagger-ui/index.html
 ```
 
 ## Contribuição
